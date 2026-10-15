@@ -150,7 +150,36 @@ document.querySelectorAll("[data]").forEach(e=>e.textContent=T[l][e.getAttribute
 
 }
 
-function send(e){
+
+async function send(e) {
+  e.preventDefault();
+
+  const result = document.getElementById("result");
+  result.textContent = "جاري إرسال المبادرة...";
+
+  const response = await fetch(
+    "https://equvoebbxixsvwksyudy.supabase.co/rest/v1/initiatives",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": "sb_publishable_4hwphiuyJy_HS44hAm84uA_wHqI7rAk",
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({
+        full_name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        title: document.getElementById("project").value,
+        description: document.getElementById("desc").value
+      })
+    }
+  );
+
+  result.textContent = response.ok
+    ? "تم إرسال المبادرة بنجاح."
+    : "تعذّر الإرسال، تأكد من إعدادات قاعدة البيانات.";
+}
+
 
 e.preventDefault();
 
