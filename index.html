@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>IRAQ LINK | Sajad Mushtaq Hamad</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{margin:0;background:#081526;color:white;font-family:Tahoma,Arial}
+
+header{padding:20px;background:#10243b;display:flex;justify-content:space-between;align-items:center;gap:10px}
+
+.logo{font-size:23px;font-weight:bold;color:#e0bc70}
+
+select,input,textarea,button{padding:12px;border:0;border-radius:8px;font:inherit}
+
+button{background:#e0bc70;color:#081526;font-weight:bold;cursor:pointer}
+
+.hero{text-align:center;padding:65px 18px;background:linear-gradient(135deg,#163b58,#081526)}
+
+.hero h1{font-size:34px}
+
+.hero p{line-height:2;color:#d0dbea}
+
+section{padding:30px 7%;max-width:1100px;margin:auto}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+
+.card{background:#14283e;padding:22px;border-radius:12px}
+
+.card h3{color:#e0bc70}
+
+form{display:grid;gap:12px;max-width:550px}
+
+input,textarea{width:100%;background:white;color:#111}
+
+footer{text-align:center;padding:25px;background:#10243b;color:#ddd;line-height:1.8}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">🇮🇶 IRAQ LINK</div>
+
+<select onchange="changeLang(this.value)">
+
+<option value="ar">العربية</option>
+
+<option value="en">English</option>
+
+<option value="ku">کوردی</option>
+
+</select>
+
+</header>
+
+<div class="hero">
+
+<h1 data="title">منصة عراق لينك الوطنية</h1>
+
+<p data="sub">منصة تجمع الأفكار والمبادرات التقنية لخدمة العراق.</p>
+
+<button onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})" data="start">قدّم مبادرتك</button>
+
+</div>
+
+<section>
+
+<h2 data="services">خدمات المنصة</h2>
+
+<div class="grid">
+
+<div class="card"><h3 data="a">المبادرات العراقية</h3><p data="ad">انشر فكرتك ومشروعك لخدمة المجتمع.</p></div>
+
+<div class="card"><h3 data="b">الحلول التقنية</h3><p data="bd">شارك بحلول تقنية للمشكلات اليومية.</p></div>
+
+<div class="card"><h3 data="c">تطوير المشاريع</h3><p data="cd">حوّل فكرتك إلى مشروع قابل للتطوير.</p></div>
+
+</div>
+
+</section>
+
+<section id="form">
+
+<h2 data="join">سجّل مبادرتك</h2>
+
+<form onsubmit="send(event)">
+
+<input id="name" placeholder="الاسم الكامل" required>
+
+<input id="phone" type="tel" placeholder="رقم الهاتف العراقي 07XXXXXXXXX" pattern="07[0-9]{9}" maxlength="11" required>
+
+<input id="project" placeholder="عنوان المبادرة" required>
+
+<textarea id="desc" placeholder="اشرح فكرتك ومبادرتك" rows="5" required></textarea>
+
+<button type="submit" data="send">إرسال المبادرة</button>
+
+</form>
+
+<p id="result"></p>
+
+</section>
+
+<footer>
+
+<strong>IRAQ LINK 🇮🇶</strong>
+
+<p>المؤسس والمطور: سجاد مشتاق حمد</p>
+
+<p>Founder & Developer: Sajad Mushtaq Hamad</p>
+
+<p>SK Digital Solutions © 2026</p>
+
+</footer>
+
+<script>
+
+const T={
+
+ar:{title:"منصة عراق لينك الوطنية",sub:"منصة تجمع الأفكار والمبادرات التقنية لخدمة العراق.",start:"قدّم مبادرتك",services:"خدمات المنصة",a:"المبادرات العراقية",ad:"انشر فكرتك ومشروعك لخدمة المجتمع.",b:"الحلول التقنية",bd:"شارك بحلول تقنية للمشكلات اليومية.",c:"تطوير المشاريع",cd:"حوّل فكرتك إلى مشروع قابل للتطوير.",join:"سجّل مبادرتك",send:"إرسال المبادرة",phone:"رقم الهاتف العراقي 07XXXXXXXXX",name:"الاسم الكامل",project:"عنوان المبادرة",desc:"اشرح فكرتك ومبادرتك",ok:"تم التحقق من الحقول، لكن الإرسال الحقيقي يحتاج ربط قاعدة بيانات."},
+
+en:{title:"IRAQ LINK National Platform",sub:"Connecting ideas and technology initiatives to serve Iraq.",start:"Submit an Initiative",services:"Our Services",a:"Iraqi Initiatives",ad:"Share your idea to serve the community.",b:"Technology Solutions",bd:"Suggest technical solutions to everyday problems.",c:"Project Development",cd:"Turn your idea into a project.",join:"Register Your Initiative",send:"Submit Initiative",phone:"Iraqi phone number 07XXXXXXXXX",name:"Full name",project:"Initiative title",desc:"Describe your initiative",ok:"Fields validated. Database connection is required for real submission."},
+
+ku:{title:"پلاتفۆرمی نیشتمانی عێراق لینک",sub:"پەیوەستکردنی بیرۆکە و دەستپێشخەری تەکنەلۆژییەکان بۆ خزمەتکردنی عێراق.",start:"دەستپێشخەری پێشکەش بکە",services:"خزمەتگوزارییەکان",a:"دەستپێشخەرییە عێراقییەکان",ad:"بیرۆکەکەت بڵاو بکەرەوە بۆ خزمەتکردنی کۆمەڵگا.",b:"چارەسەری تەکنەلۆژی",bd:"چارەسەری تەکنیکی پێشنیار بکە.",c:"پەرەپێدانی پڕۆژە",cd:"بیرۆکەکەت بکە بە پڕۆژەیەک.",join:"تۆمارکردنی دەستپێشخەری",send:"ناردن",phone:"ژمارەی مۆبایلی عێراقی",name:"ناوی تەواو",project:"ناونیشانی پڕۆژە",desc:"دەستپێشخەرییەکەت باس بکە",ok:"خانەکان پشتڕاست کرانەوە، بەڵام بۆ ناردنی ڕاستەقینە پێویستە بە بنکەی داتا ببەسترێت."}
+
+};
+
+function changeLang(l){
+
+document.documentElement.lang=l;
+
+document.documentElement.dir=l==="en"?"ltr":"rtl";
+
+document.querySelectorAll("[data]").forEach(e=>e.textContent=T[l][e.getAttribute("data")]);
+
+["name","phone","project","desc"].forEach(id=>document.getElementById(id).placeholder=T[l][id]);
+
+}
+
+function send(e){
+
+e.preventDefault();
+
+document.getElementById("result").textContent=T[document.querySelector("select").value].ok;
+
+}
+
+</script>
+
+</body>
+
+</html>
